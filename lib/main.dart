@@ -1,124 +1,129 @@
-// Copyright 2018 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
+import 'knowledge_page.dart';
+
+// 1. エントリーポイントのmain関数
 void main() {
+  // 2.MyAppを呼び出す
   runApp(const MyApp());
 }
 
+// MyAppのクラス
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Cheese Generator',
-      home: RandomWords(),
+    // 3.タイトルとテーマを設定する。画面の本体はMyHomePageで作る。
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class RandomWords extends StatefulWidget {
-  const RandomWords({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
-  State<RandomWords> createState() => _RandomWordsState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _RandomWordsState extends State<RandomWords> {
-  final _suggestions = <WordPair>[];
-  final _saved = <WordPair>{};
-  final _biggerFont = const TextStyle(fontSize: 18);
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Cheese Generator'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.list),
-            onPressed: _pushSaved,
-            tooltip: 'Saved Suggestions',
+        appBar: AppBar(
+            title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(LineIcons.cheese),
+            Text("Cheese Academy Fukuoka"),
+          ],
+        )),
+        body: Column(children: [
+          Container(
+            margin: const EdgeInsets.all(20),
+            child: const Text("ようこそ",
+                style: TextStyle(
+                  fontSize: 30,
+                )),
           ),
-        ],
-      ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(16.0),
-        itemBuilder: (context, i) {
-          if (i.isOdd) return const Divider();
-
-          final index = i ~/ 2;
-          if (index >= _suggestions.length) {
-            _suggestions.addAll(generateWordPairs().take(10));
-          }
-          final alreadySaved = _saved.contains(_suggestions[index]);
-          return ListTile(
-            title: Text(
-              '${_suggestions[index].asPascalCase} Cheese',
-              style: _biggerFont,
-            ),
-            trailing: CircleAvatar(
-              radius: 16,
-              backgroundColor: alreadySaved ? Colors.amber[800] : null,
-              child: Icon(
-                LineIcons.cheese,
-                color: alreadySaved ? Colors.white : null,
-                semanticLabel: alreadySaved ? 'Remove from saved' : 'Save',
-              ),
-            ),
-            onTap: () {
-              setState(() {
-                if (alreadySaved) {
-                  _saved.remove(_suggestions[index]);
-                } else {
-                  _saved.add(_suggestions[index]);
-                }
-              });
-            },
-          );
-        },
-      ),
-    );
-  }
-
-  void _pushSaved() {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (context) {
-          final tiles = _saved.map(
-            (pair) {
-              return ListTile(
-                title: Text(
-                  '${pair.asPascalCase} Cheese',
-                  style: _biggerFont,
-                ),
-                trailing: Icon(
-                  Icons.delete,
-                  color: Colors.red,
-                ),
-              );
-            },
-          );
-          final divided = tiles.isNotEmpty
-              ? ListTile.divideTiles(
-                  context: context,
-                  tiles: tiles,
-                ).toList()
-              : <Widget>[];
-
-          return Scaffold(
-            appBar: AppBar(
-              title: const Text('Saved Cheese'),
-            ),
-            body: ListView(children: divided),
-          );
-        },
-      ),
-    );
+          Container(
+            margin: const EdgeInsets.all(20),
+            child: const Text("チーズアカデミーへ",
+                style: TextStyle(
+                  fontSize: 30,
+                )),
+          ),
+          Center(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                          icon: const Icon(LineIcons.school),
+                          color: Colors.blue,
+                          iconSize: 60,
+                          onPressed: () {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return KnowLedgePage();
+                            }));
+                          }),
+                      const Text('学ぶ',
+                          style: TextStyle(
+                            fontSize: 25,
+                          )),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                          icon: const Icon(LineIcons.alternateList),
+                          color: Colors.blue,
+                          iconSize: 60,
+                          onPressed: () {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return KnowLedgePage();
+                            }));
+                          }),
+                      const Text('準備する',
+                          style: TextStyle(
+                            fontSize: 25,
+                          )),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                          icon: const Icon(LineIcons.utensils),
+                          color: Colors.blue,
+                          iconSize: 60,
+                          onPressed: () {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return KnowLedgePage();
+                            }));
+                          }),
+                      const Text('作る',
+                          style: TextStyle(
+                            fontSize: 25,
+                          )),
+                    ],
+                  ),
+                ]),
+          )
+        ]));
   }
 }

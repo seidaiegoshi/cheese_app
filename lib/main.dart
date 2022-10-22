@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'knowledge_page.dart';
 
@@ -15,20 +16,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 3.タイトルとテーマを設定する。画面の本体はMyHomePageで作る。
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Cheese Academy',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: GoogleFonts.notoSansTextTheme(),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -46,27 +46,24 @@ class _MyHomePageState extends State<MyHomePage> {
             Text("Cheese Academy Fukuoka"),
           ],
         )),
-        body: Column(children: [
+        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Container(
             margin: const EdgeInsets.all(20),
-            child: const Text("ようこそ",
-                style: TextStyle(
-                  fontSize: 30,
-                )),
+            child: const Text(
+              "ようこそ\nチーズアカデミーへ",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ),
           Container(
-            margin: const EdgeInsets.all(20),
-            child: const Text("チーズアカデミーへ",
-                style: TextStyle(
-                  fontSize: 30,
-                )),
-          ),
-          Center(
+            margin: const EdgeInsets.only(bottom: 300, top: 20),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(
                           icon: const Icon(LineIcons.school),

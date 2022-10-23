@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
-class KnowLedgePage extends StatelessWidget {
-  const KnowLedgePage({super.key});
+class MakePage extends StatelessWidget {
+  const MakePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("It's Cheese Academy"),
+          title: const Text("To the top of the cheese"),
         ),
         body: SingleChildScrollView(
             child: Container(

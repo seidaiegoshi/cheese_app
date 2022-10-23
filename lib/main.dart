@@ -44,10 +44,10 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
-          Icon(
-            LineIcons.cheese,
+          Icon(LineIcons.cheese),
+          Text(
+            "Cheese Academy Fukuoka",
           ),
-          Text("Cheese Academy Fukuoka"),
         ],
       )),
       body: Container(
@@ -58,19 +58,32 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
+                  height: 200,
                   margin: const EdgeInsets.only(top: 50),
                   padding: const EdgeInsets.all(20),
-                  // decoration: BoxDecoration(
-                  // color: Colors.amber[800],
-                  // borderRadius: BorderRadius.circular(5),
-                  child: const Text(
-                    "Welcome to\n Cheese Academy.",
-                    style: TextStyle(
-                      // color: Colors.,
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        colorFilter: ColorFilter.mode(
+                          Colors.white,
+                          BlendMode.modulate,
+                        ),
+                        image: NetworkImage(
+                          'https://illustkun.com/wp-content/uploads/illustkun-04598-cheese.png',
+                        ),
+                        fit: BoxFit.fitHeight,
+                        opacity: 0.2,
+                      ),
                     ),
-                    textAlign: TextAlign.center,
+                    child: const Text(
+                      "Welcome to\n Cheese Academy.",
+                      style: TextStyle(
+                        // color: Colors.,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
                 Container(
@@ -81,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Column(
                           children: [
                             IconButton(
-                                icon: const Icon(LineIcons.school),
+                                icon: const Icon(LineIcons.book),
                                 color: Colors.amber[800],
                                 iconSize: 60,
                                 onPressed: () {
@@ -148,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     BlendMode.modulate,
                   ),
                   image: NetworkImage(
-                    'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80',
+                    'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d',
                   ),
                   fit: BoxFit.cover,
                   opacity: 0.5,

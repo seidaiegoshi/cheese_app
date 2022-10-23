@@ -57,7 +57,7 @@ class _PrepareListState extends State<PrepareList> {
           child: Text('チーズづくりはいつからでも、どこからでも。\nまずはチーズづくりに必要なものを集めましょう。'),
         ),
         Container(
-          margin: const EdgeInsets.only(top: 50),
+          margin: const EdgeInsets.only(top: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -86,20 +86,21 @@ class _PrepareListState extends State<PrepareList> {
           ),
         ),
         Container(
+            margin: const EdgeInsets.only(top: 30),
             child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            for (var i = 0; i < prepareList.length; i++)
-              Visibility(
-                visible: isVisible[i],
-                child: Icon(
-                  LineIcons.cheese,
-                  size: 30,
-                  color: Colors.amber[800],
-                ),
-              ),
-          ],
-        )),
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                for (var i = 0; i < prepareList.length; i++)
+                  Visibility(
+                    visible: isVisible[i],
+                    child: Icon(
+                      LineIcons.cheese,
+                      size: 30,
+                      color: Colors.amber[800],
+                    ),
+                  ),
+              ],
+            )),
         Visibility(
           visible: isVisibleTextButton,
           child: Container(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class MakePage extends StatelessWidget {
   const MakePage({super.key});
@@ -23,10 +23,23 @@ class MakePageContains extends StatefulWidget {
 }
 
 class _MakePageContainsState extends State<MakePageContains> {
+  final YoutubePlayerController _controller =
+      YoutubePlayerController(initialVideoId: 'rxRAd7WU9R0');
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Text('This Page under construction'),
+    return YoutubePlayerControllerProvider(
+      controller: _controller,
+      child: Column(
+        children: [
+          const YoutubePlayerIFrame(),
+          Column(
+            children: [
+              Text('text'),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

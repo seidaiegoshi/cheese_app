@@ -157,6 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   image: NetworkImage(
                     'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d',
                   ),
+                  alignment: Alignment.center,
                   fit: BoxFit.cover,
                   opacity: 0.5,
                 ),

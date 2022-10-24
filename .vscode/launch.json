@@ -13,7 +13,11 @@
             "name": "chrome",
             "request": "launch",
             "type": "dart",
-            "deviceId": "chrome"
+            "deviceId": "chrome",
+            // "args": [
+            //     "--debug",
+            //     "--web-renderer=html",
+            // ],
         },
         {
             "name": "iPhone",

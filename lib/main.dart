@@ -6,9 +6,18 @@ import 'knowledge_page.dart';
 import 'prepare_page.dart';
 import 'make_page.dart';
 
-// 1. エントリーポイントのmain関数
-void main() {
-  // 2.MyAppを呼び出す
+///firebase
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+///
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 
@@ -61,29 +70,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 200,
                   margin: const EdgeInsets.only(top: 50),
                   padding: const EdgeInsets.all(20),
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        colorFilter: ColorFilter.mode(
-                          Colors.white,
-                          BlendMode.modulate,
-                        ),
-                        image: NetworkImage(
-                          'https://illustkun.com/wp-content/uploads/illustkun-04598-cheese.png',
-                        ),
-                        fit: BoxFit.fitHeight,
-                        opacity: 0.2,
-                      ),
+                  child: const Text(
+                    "Welcome to\n Cheese Academy.",
+                    style: TextStyle(
+                      // color: Colors.,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
                     ),
-                    child: const Text(
-                      "Welcome to\n Cheese Academy.",
-                      style: TextStyle(
-                        // color: Colors.,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 Container(

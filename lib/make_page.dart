@@ -31,12 +31,19 @@ class _MakePageContainsState extends State<MakePageContains> {
     return YoutubePlayerControllerProvider(
       controller: _controller,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const YoutubePlayerIFrame(),
-          Column(
-            children: [
-              Text('text'),
-            ],
+          Container(
+            margin: const EdgeInsets.all(20),
+            child: Text('チーズを作る！'),
+          ),
+          Center(
+            child: Container(
+              margin: EdgeInsets.all(50),
+              width: 500, //横幅いっぱいを意味する
+              child: const YoutubePlayerIFrame(),
+            ),
           ),
         ],
       ),

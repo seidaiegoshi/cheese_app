@@ -31,7 +31,6 @@ class _KnowledgeContainsState extends State<KnowledgeContains> {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            //カード
             Container(
               color: Colors.white,
               margin: const EdgeInsets.all(5),
@@ -173,6 +172,106 @@ class _KnowledgeContainsState extends State<KnowledgeContains> {
                       child: const Text(
                         'チーズアカデミーでは最後の2ヶ月間で卒業制作を実施。卒業制作として、チーズづくりを実際に行います。卒業後、一般参加によるテイスティング審査があるため、作りての目線だけでなく、消費者の目線から、卒業制作作品としてのチーズをしっかりと評価いただくことができます。\n\n',
                       ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              color: Colors.white,
+              margin: const EdgeInsets.all(5),
+              child: Container(
+                margin: const EdgeInsets.all(20),
+                width: double.infinity,
+                child: Column(
+                  children: [
+                    const Text(
+                      'ACCESS',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Row(
+                      // padding: const EdgeInsets.only(top: 30),
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Text(
+                            '学校名\n',
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Text(
+                            'チーズアカデミー福岡\n',
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Text(
+                            '事務所所在地\n',
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Text(
+                            '〒810-0041 福岡県福岡市中央区大名1丁目3-41 プリオ大名ビル1F \n',
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Text(
+                            'TEL\n',
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Text(
+                            '000-000-0000 \n',
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Text(
+                            'FAX\n',
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Text(
+                            '000-000-0000\n',
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Text(
+                            'MAIL\n',
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Text(
+                            'dumy@cheeseacademy.fukuoka\n',
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

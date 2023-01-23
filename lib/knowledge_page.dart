@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
 class KnowLedgePage extends StatelessWidget {
-  final String title;
-  const KnowLedgePage({Key? key, required this.title}) : super(key: key);
+  const KnowLedgePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
